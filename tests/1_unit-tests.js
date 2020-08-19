@@ -38,8 +38,9 @@ suite('Unit Tests', function(){
     });
     
     test('Invalid Input (double fraction)', function(done) {
-      
-      //done();
+      var input = '3/7.2/4L';
+      assert.equal(convertHandler.getNum(input), 'invalid number');
+      done();
     });
     
     test('No Numerical Input', function(done) {
@@ -62,6 +63,7 @@ suite('Unit Tests', function(){
     test('Unknown Unit Input', function(done) {
       let input = '32g'
       assert.equal(convertHandler.getUnit(input), 'invalid unit');
+      done();
     });  
     
   });
