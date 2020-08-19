@@ -94,27 +94,27 @@ function ConvertHandler() {
     switch(unit){
       case 'gal':
       case 'GAL':
-        result = 'gallons'
+        result = 'gallon(s)'
         break;
       case 'L':
       case 'l':
-        result = 'liters'
+        result = 'liter(s)'
         break;
       case 'lbs':
       case 'LBS':
-        result = 'pounds'
+        result = 'pound(s)'
         break;
       case 'kg':
       case 'KG':
-        result = 'kilograms'
+        result = 'kilogram(s)'
         break;
       case 'mi':
       case 'MI':
-        result = 'miles'
+        result = 'mile(s)'
         break;
       case 'km':
       case 'KM':
-        result = 'kilometers'
+        result = 'kilometer(s)'
         break;
     }
     
@@ -154,11 +154,13 @@ function ConvertHandler() {
         break;
     }
     
-    return result;
+    return parseFloat(result);
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
     var result;
+    
+    result = initNum + ' ' + this.spellOutUnit(initUnit) + ' converts to ' + returnNum + ' ' + this.spellOutUnit(returnUnit)
     
     return result;
   };
