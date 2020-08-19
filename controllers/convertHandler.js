@@ -15,6 +15,21 @@ function ConvertHandler() {
     
     result = input.match(inputRegex)[0]
     
+    let numberRegex = /\d/
+    if(numberRegex.test(result) === false){
+      result = 1
+    }
+    
+    if(result.toString().includes('/')){
+      let values = result.toString().split('/')
+      if(values.length != 2){
+        return 'invalid number'
+      }
+      values[0] = parseFloat(values[0])
+      values[1] = parseFloat(values[1])
+      result = parseFloat((values[0]/values[1]).toFixed(5))
+    }
+    
     if(isNaN(result)){
       return 'invalid number'
     }
@@ -26,6 +41,10 @@ function ConvertHandler() {
     var result;
     
     result = input.match(inputRegex)[1]
+    
+    if(!result){
+      result = input.match(inputRegex)[0]
+    }
     
     let validUnits = ['gal','l','mi','km','lbs','kg','GAL','L','MI','KM','LBS','KG'];
     
