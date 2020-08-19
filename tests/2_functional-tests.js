@@ -70,7 +70,8 @@ suite("Functional Tests", function() {
           .get("/api/convert")
           .query({ input: "kg" })
           .end(function(err, res) {
-            assert.equal(res.body, 2.20462);
+            assert.equal(res.body.initNum, 1);
+            assert.equal(res.body.initUnit, 'kg');
           });
         done();
       });
